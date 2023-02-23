@@ -6,6 +6,20 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 15px;
+}
+
+.outer-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.bulbs-container {
+    width: 670px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .bulb {
@@ -13,6 +27,7 @@
     height: 100px;
     border-radius: 50%;
     border: 1px solid;
+    margin-bottom: 15px;
 }
 
 .light-on {
@@ -34,10 +49,12 @@ button {
     height: 35px;
 }
 
-.on {
-
-}
-
-.off {
-
+.lamp {
+    border: 1px solid;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;;
 }

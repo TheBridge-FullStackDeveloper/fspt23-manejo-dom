@@ -4,6 +4,8 @@ window.onload = function() {
     prepareOffButton()
     prepareRandomButton()
     prepareCarouselButton()
+    // New code!
+    addNewButton()
 }
 
 const bulb = {
@@ -75,4 +77,51 @@ function prepareCarouselButton() {
             bulb.carousel()
         }
     })
+}
+
+// New code!
+
+const lamps = []
+
+function addNewButton() {
+    const button = document.createElement('button')
+    button.innerText = 'Add bulb!'
+
+    button.addEventListener('click', addNewLamp) // Esto es igual que: function() { addNewLamp() }
+
+    const buttonsContainer = document.querySelector('.buttons')
+    buttonsContainer.appendChild(button)
+}
+
+function addNewLamp() {
+    const lamp = document.createElement('section')
+    lamp.classList.add('lamp')
+
+    const bulbId = `bulb-${lamps.length}`
+    const bulb = document.createElement('div')
+    bulb.classList.add('bulb', 'light-off')
+    bulb.setAttribute('id', bulbId)
+
+    const button = document.createElement('button')
+    button.innerText = 'On'
+    
+    button.addEventListener('click', function() {
+        const bulb = document.querySelector(`#${bulbId}`)
+
+        if(this.innerText === 'On') {
+            bulb.classList.replace('light-off', 'light-on')
+            this.innerText = 'Off'
+        } else {
+            bulb.classList.replace('light-on', 'light-off')
+            button.innerText = 'On'
+        }
+    })
+
+    lamp.appendChild(bulb)
+    lamp.appendChild(button)
+
+    const bulbsContainer = document.querySelector('.bulbs-container')
+    bulbsContainer.appendChild(lamp)
+
+    lamps.push(lamp)
 }
